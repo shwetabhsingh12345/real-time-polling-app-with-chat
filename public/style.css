@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.message {
+  position: relative;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.message-actions {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.message:hover .message-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+#poll-chart {
+  max-height: 300px;
+  width: 100%;
+}
+
+#timer {
+  font-size: 18px;
+}

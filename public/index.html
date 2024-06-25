@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Polling and Chat</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800 flex items-center justify-center h-screen">
+    <div class="container mx-auto p-4 bg-white shadow-lg rounded-lg" id="app">
+        <div id="login" class="text-center mt-5">
+            <input id="username" class="form-control w-full p-2 rounded border border-gray-300 mb-3"
+                placeholder="Enter your username" autocomplete="off">
+            <button id="join-btn"
+                class="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Join</button>
+        </div>
+        <div id="main" class="hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div id="poll" class="bg-white p-6 rounded shadow-md">
+                    <div class="mb-4">
+                        <h2 class="text-2xl font-bold mb-3 text-center">Poll</h2>
+                        <div id="timer" class="badge bg-gray-200 text-gray-800 p-2 rounded mb-3 text-center"></div>
+                        <div id="poll-question" class="mb-3 text-lg text-center"></div>
+                        <div id="options" class="text-center"></div>
+                    </div>
+                    <canvas id="poll-chart" class="w-full"></canvas>
+                    <div class="flex justify-center mt-4">
+                        <button id="extend-timer-btn"
+                            class="btn bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600">Extend
+                            Timer</button>
+                    </div>
+                </div>
+                <div id="chat" class="bg-white p-6 rounded shadow-md">
+                    <h2 class="text-2xl font-bold mb-3 text-center">Chat</h2>
+                    <div id="messages" class="border p-3 mb-3 h-64 overflow-y-auto rounded"></div>
+                    <div id="typing-indicator" class="text-gray-500 mb-2 hidden">Someone is typing...</div>
+                    <input id="chat-input"
+                        class="form-control w-full p-2 rounded border border-gray-300"
+                        autocomplete="off" placeholder="Type your message here...">
+                    <div class="flex justify-between items-center mt-2">
+                        <button id="send-btn"
+                            class="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Send</button>
+                        <button id="toggle-notifications"
+                            class="btn bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Toggle
+                            Notifications</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
